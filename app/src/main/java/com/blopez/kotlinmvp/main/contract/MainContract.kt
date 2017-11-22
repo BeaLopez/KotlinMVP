@@ -6,10 +6,12 @@ package com.blopez.kotlinmvp.main.contract
 class MainContract{
 
     interface View{
-
+        fun setText(text: String)
     }
 
     interface Presenter{
         fun setView(view: View)
+        fun eventOnClickMe()
+        fun eventOnClickReset()
     }
 }

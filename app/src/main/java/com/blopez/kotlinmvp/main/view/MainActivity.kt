@@ -9,11 +9,26 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), MainContract.View {
 
-    protected lateinit var mPresenter: MainPresenter
+    lateinit var mPresenter: MainPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        my_text_view.text = getString(R.string.hello_world)
+        initPresenter()
+        addButtonListeners()
+    }
+
+    private fun initPresenter(){
+        mPresenter = MainPresenter()
+        mPresenter.setView(this)
+    }
+
+    private fun addButtonListeners(){
+        btn_click_me.setOnClickListener { mPresenter.eventOnClickMe() }
+        btn_reset.setOnClickListener { mPresenter.eventOnClickReset() }
+    }
+
+    override fun setText(text: String) {
+        tv_num_clicks.text = getString(R.string.clicks) + " $text"
     }
 }
