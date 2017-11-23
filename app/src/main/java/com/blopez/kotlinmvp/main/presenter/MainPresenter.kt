@@ -27,6 +27,7 @@ open class MainPresenter: MainContract.Presenter{
         mView.setTextNumClicks(numClicks.toString())
         mView.setTextTimer("10")
         mView.enabledClickMe(true)
+        mView.stopCountDown()
     }
 
     override fun eventOnTick(millisUntilFinished: Long) {
