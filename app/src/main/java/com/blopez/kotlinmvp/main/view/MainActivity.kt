@@ -10,8 +10,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), MainContract.View {
 
-    lateinit var mPresenter: MainPresenter
-    lateinit var countDownTimer: CountDownTimer
+    private lateinit var mPresenter: MainPresenter
+    private lateinit var countDownTimer: CountDownTimer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,12 +40,12 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     }
 
     private fun addButtonListeners(){
-        btn_click_me.setOnClickListener { mPresenter.eventOnClickMe() }
+        floating_btn.setOnClickListener { mPresenter.eventOnClickMe() }
         btn_reset.setOnClickListener { mPresenter.eventOnClickReset() }
     }
 
     override fun enabledClickMe(enabled: Boolean) {
-        btn_click_me.isEnabled = enabled
+        floating_btn.isEnabled = enabled
     }
 
     override fun setTextNumClicks(text: String) {
@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     }
 
     override fun setTextTimer(text: String) {
-        tv_timer.text = ": $text"
+        tv_timer.text = ":$text"
     }
 
     override fun startCountDown() {
@@ -61,6 +61,6 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     }
 
     override fun stopCountDown() {
-       countDownTimer.cancel()
+        countDownTimer.cancel()
     }
 }

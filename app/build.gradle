@@ -4,6 +4,7 @@ ext {
     junit_version = '4.12'
     test_runner_version = '1.0.1'
     espresso_core_version = '3.0.1'
+    support_design_version = '26.1.0'
 }
 
 apply plugin: 'com.android.application'
@@ -36,4 +37,5 @@ dependencies {
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "com.android.support.test:runner:$test_runner_version"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$espresso_core_version"
+    implementation "com.android.support:design:$support_design_version"
 }
