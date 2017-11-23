@@ -15,12 +15,26 @@ open class MainPresenter: MainContract.Presenter{
     }
 
     override fun eventOnClickMe() {
+        if (numClicks == 0){
+            mView.startCountDown()
+        }
         numClicks++
-        mView.setText(numClicks.toString())
+        mView.setTextNumClicks(numClicks.toString())
     }
 
     override fun eventOnClickReset() {
         numClicks = 0
-        mView.setText(numClicks.toString())
+        mView.setTextNumClicks(numClicks.toString())
+        mView.setTextTimer("10")
+        mView.enabledClickMe(true)
+    }
+
+    override fun eventOnTick(millisUntilFinished: Long) {
+        mView.setTextTimer((millisUntilFinished / 1000).toString())
+    }
+
+    override fun eventOnFinishCountDown() {
+        mView.stopCountDown()
+        mView.enabledClickMe(false)
     }
 }

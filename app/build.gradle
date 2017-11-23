@@ -14,7 +14,7 @@ android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.blopez.kotlinmvp"
-        minSdkVersion 21
+        minSdkVersion 24
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"

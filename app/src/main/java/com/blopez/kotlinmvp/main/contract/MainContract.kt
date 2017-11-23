@@ -6,12 +6,18 @@ package com.blopez.kotlinmvp.main.contract
 class MainContract{
 
     interface View{
-        fun setText(text: String)
+        fun setTextNumClicks(text: String)
+        fun setTextTimer(text: String)
+        fun enabledClickMe(enabled: Boolean)
+        fun startCountDown()
+        fun stopCountDown()
     }
 
     interface Presenter{
         fun setView(view: View)
         fun eventOnClickMe()
         fun eventOnClickReset()
+        fun eventOnTick(millisUntilFinished: Long)
+        fun eventOnFinishCountDown()
     }
 }
