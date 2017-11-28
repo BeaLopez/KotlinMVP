@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
         countDownTimer = object: CountDownTimer(10000, 1000){
             override fun onFinish() {
+                mPresenter.eventOnTick(0)
                 mPresenter.eventOnFinishCountDown()
             }
 
