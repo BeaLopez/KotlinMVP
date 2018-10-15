@@ -1,8 +1,8 @@
 package com.blopez.kotlinmvp.main.view
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.support.v7.app.AppCompatActivity
 import com.blopez.kotlinmvp.R
 import com.blopez.kotlinmvp.main.contract.MainContract
 import com.blopez.kotlinmvp.main.presenter.MainPresenter
@@ -21,14 +21,14 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         addButtonListeners()
     }
 
-    private fun initPresenter(){
+    private fun initPresenter() {
         mPresenter = MainPresenter()
         mPresenter.setView(this)
     }
 
-    private fun initTimer(){
+    private fun initTimer() {
 
-        countDownTimer = object: CountDownTimer(10000, 1000){
+        countDownTimer = object : CountDownTimer(10000, 1000) {
             override fun onFinish() {
                 mPresenter.eventOnTick(0)
                 mPresenter.eventOnFinishCountDown()
@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         }
     }
 
-    private fun addButtonListeners(){
+    private fun addButtonListeners() {
         floating_btn.setOnClickListener { mPresenter.eventOnClickMe() }
         btn_reset.setOnClickListener { mPresenter.eventOnClickReset() }
     }
@@ -50,11 +50,11 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     }
 
     override fun setTextNumClicks(text: String) {
-        tv_num_clicks.text = getString(R.string.clicks) + " $text"
+        tv_num_clicks.text = getString(R.string.clicks, text)
     }
 
     override fun setTextTimer(text: String) {
-        tv_timer.text = ":$text"
+        tv_timer.text = getString(R.string.dots, text)
     }
 
     override fun startCountDown() {

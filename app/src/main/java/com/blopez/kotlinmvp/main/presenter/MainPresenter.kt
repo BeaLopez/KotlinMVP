@@ -5,7 +5,7 @@ import com.blopez.kotlinmvp.main.contract.MainContract
 /**
  * Created by b.lopez.morales on 21/11/17.
  */
-class MainPresenter: MainContract.Presenter{
+class MainPresenter : MainContract.Presenter {
 
     private lateinit var mView: MainContract.View
     private var numClicks: Int = 0
@@ -15,7 +15,7 @@ class MainPresenter: MainContract.Presenter{
     }
 
     override fun eventOnClickMe() {
-        if (numClicks == 0){
+        if (numClicks == 0) {
             mView.startCountDown()
         }
         numClicks++

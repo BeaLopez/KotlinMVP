@@ -3,9 +3,9 @@ package com.blopez.kotlinmvp.main.contract
 /**
  * Created by b.lopez.morales on 21/11/17.
  */
-class MainContract{
+class MainContract {
 
-    interface View{
+    interface View {
         fun setTextNumClicks(text: String)
         fun setTextTimer(text: String)
         fun enabledClickMe(enabled: Boolean)
@@ -13,7 +13,7 @@ class MainContract{
         fun stopCountDown()
     }
 
-    interface Presenter{
+    interface Presenter {
         fun setView(view: View)
         fun eventOnClickMe()
         fun eventOnClickReset()
